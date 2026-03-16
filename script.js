@@ -1,6 +1,7 @@
 const userRoleInput = document.getElementById('userRole');
 const aiRoleInput = document.getElementById('aiRole');
 const appIdeaArea = document.getElementById('appIdea');
+const repoUrlInput = document.getElementById('repoUrl');
 const contextDetailsArea = document.getElementById('contextDetails');
 const mustHavesArea = document.getElementById('mustHaves');
 const promptOutput = document.getElementById('promptOutput');
@@ -11,6 +12,7 @@ const storageKeys = {
   userRole: 'promptBuilder.userRole',
   aiRole: 'promptBuilder.aiRole',
   appIdea: 'promptBuilder.appIdea',
+  repoUrl: 'promptBuilder.repoUrl',
   contextDetails: 'promptBuilder.contextDetails',
   mustHaves: 'promptBuilder.mustHaves',
 };
@@ -30,6 +32,7 @@ function restoreSavedValues() {
   userRoleInput.value = localStorage.getItem(storageKeys.userRole) || '';
   aiRoleInput.value = localStorage.getItem(storageKeys.aiRole) || '';
   appIdeaArea.value = localStorage.getItem(storageKeys.appIdea) || '';
+  repoUrlInput.value = localStorage.getItem(storageKeys.repoUrl) || '';
   contextDetailsArea.value = localStorage.getItem(storageKeys.contextDetails) || '';
   mustHavesArea.value = localStorage.getItem(storageKeys.mustHaves) || '';
 }
@@ -60,6 +63,9 @@ function buildPrompt() {
   const appIdea =
     appIdeaArea.value.trim() ||
     '[describe the browser-based app you want built]';
+  const repoUrl =
+    repoUrlInput.value.trim() ||
+    '[paste the empty GitHub repo URL if you have one]';
   const contextItems = toBulletItems(
     contextDetailsArea.value,
     defaultContextItems
@@ -78,6 +84,9 @@ function buildPrompt() {
     'What I want you to build:',
     appIdea,
     '',
+    'GitHub repository for this build:',
+    repoUrl,
+    '',
     'Context and details:',
     ...contextItems.map(function (item) {
       return '- ' + item;
@@ -91,6 +100,8 @@ function buildPrompt() {
     'Build requirements:',
     '- Make this a simple browser-based app.',
     '- Prefer HTML, CSS, and JavaScript unless another lightweight stack is clearly better.',
+    '- If a GitHub repository is provided above, use that repository as the project location for the build.',
+    '- Assume the repository starts empty unless I say otherwise.',
     '- Keep the interface clear, beginner-friendly, and usable on desktop and mobile.',
     '- Make reasonable assumptions when details are missing and note those assumptions briefly.',
     '- Return a working first version plus the main files needed to run locally.',
@@ -137,6 +148,10 @@ aiRoleInput.addEventListener('input', function () {
 
 appIdeaArea.addEventListener('input', function () {
   handleFieldUpdate(storageKeys.appIdea, appIdeaArea.value);
+});
+
+repoUrlInput.addEventListener('input', function () {
+  handleFieldUpdate(storageKeys.repoUrl, repoUrlInput.value);
 });
 
 contextDetailsArea.addEventListener('input', function () {

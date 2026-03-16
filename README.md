@@ -19,11 +19,12 @@ This repo is designed for workshop participants who may:
 
 ## What this app does
 
-The app is a single-page prompt builder that runs entirely in the browser. It helps participants break a build prompt into clear parts:
+The app is a small browser-based prompt builder that runs entirely in the browser. It helps participants break a build prompt into clear parts:
 
 - **Your role**: who you are or what perspective you are bringing.
 - **AI role**: what kind of expertise you want from the coding assistant.
 - **App goal**: the simple browser-based app you want built.
+- **Repository URL**: the empty GitHub repo you want the coding assistant to use.
 - **Context and details**: the audience, situation, or constraints.
 - **Must-haves**: the pieces the app needs in version one.
 
@@ -32,6 +33,7 @@ As people type, the app:
 - Updates a **live build-prompt preview**.
 - Saves their entries in `localStorage`.
 - Lets them **copy one finished prompt** and paste it into an AI coder assistant.
+- Links to a **GitHub guide page** for repo setup, local folder setup, and advanced private-repo notes.
 
 ---
 
@@ -77,13 +79,13 @@ cd Desktop
 4. Clone the repository:
 
 ```bash
-git clone https://github.com/tfp24601/emu-summit-build.git
+git clone https://github.com/tfp24601/Coding-Assistant-prompt-builder.git
 ```
 
 5. Move into the project:
 
 ```bash
-cd emu-summit-build
+cd Coding-Assistant-prompt-builder
 ```
 
 6. Open `index.html` in your browser.
@@ -105,11 +107,14 @@ Then open [http://127.0.0.1:8000](http://127.0.0.1:8000).
 1. Enter **your role**.
 2. Describe what role the **AI coder assistant** should take on.
 3. Describe the **browser-based app** you want built.
-4. Add any **context and details** that matter.
-5. List the **must-have pieces** for version one.
-6. Review the live prompt preview.
-7. Click **Copy Prompt**.
-8. Paste the prompt into your AI coder assistant and ask them to build the first version.
+4. Paste the **GitHub repo URL** if you already created an empty repo for the build.
+5. Add any **context and details** that matter.
+6. List the **must-have pieces** for version one.
+7. Review the live prompt preview.
+8. Click **Copy Prompt**.
+9. Paste the prompt into your AI coder assistant and ask them to build the first version.
+
+If you need help with the GitHub side first, open `github-guide.html`.
 
 The generated prompt already asks the coding assistant to:
 
@@ -142,14 +147,14 @@ Once you want to save your own changes, you should make your own copy of the rep
 ### Option 1: Fork the repository
 
 1. Log in to GitHub.
-2. Open `https://github.com/tfp24601/emu-summit-build`.
+2. Open `https://github.com/tfp24601/Coding-Assistant-prompt-builder`.
 3. Click **Fork**.
 4. Choose your own account.
 5. Clone your fork:
 
 ```bash
-git clone https://github.com/YOUR-USERNAME/emu-summit-build.git
-cd emu-summit-build
+git clone https://github.com/YOUR-USERNAME/Coding-Assistant-prompt-builder.git
+cd Coding-Assistant-prompt-builder
 ```
 
 6. Make changes and push them:
@@ -250,6 +255,7 @@ To add one:
 ## Files in this repo
 
 - `index.html`: page structure and form fields
+- `github-guide.html`: beginner and advanced GitHub setup guide
 - `style.css`: layout, colors, and visual style
 - `script.js`: live prompt generation, local storage, and copy behavior
 - `docs/for-workshop-facilitators.md`: facilitator notes for running this in a session

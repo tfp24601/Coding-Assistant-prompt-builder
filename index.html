@@ -8,23 +8,30 @@
 </head>
 <body>
   <header>
+    <nav class="top-nav" aria-label="Primary">
+      <a class="nav-link is-current" href="index.html">Prompt Builder</a>
+      <a class="nav-link" href="github-guide.html">GitHub Guide</a>
+    </nav>
     <p class="eyebrow">Workshop prompt anatomy</p>
     <h1>Prompt-to-App Builder</h1>
     <p class="subtitle">
       Show what prompting actually is: describe who you are, what kind of AI
-      coder should help, what app your coding assistant should build, and the
-      details your coding assistant needs. The clearer the setup, the better
-      the finished prompt will be for your AI coder assistant.
+      coder should help, what app your coding assistant should build, which
+      GitHub repo should anchor the project, and the details your coding
+      assistant needs. The clearer the setup, the better the finished prompt
+      will be for your AI coder assistant.
     </p>
   </header>
 
   <main>
     <section class="form-section" aria-label="Prompt builder form">
       <div class="section-heading">
-        <h2>Build the prompt in five parts</h2>
+        <h2>Build the prompt in six parts</h2>
         <p>
           Each block becomes part of the final app-building prompt. The preview
           updates as you type so people can see how prompting comes together.
+          Need help with the GitHub setup? Open the
+          <a href="github-guide.html">GitHub guide</a>.
         </p>
       </div>
 
@@ -65,8 +72,24 @@
           ></textarea>
         </div>
 
+        <div class="prompt-block prompt-block-wide">
+          <p class="block-label">4. Repository</p>
+          <label for="repoUrl">Which empty GitHub repo should your coding assistant use?</label>
+          <input
+            type="url"
+            id="repoUrl"
+            name="repoUrl"
+            placeholder="Example: https://github.com/YOUR-USERNAME/YOUR-REPO"
+            maxlength="240"
+          />
+          <p class="field-note">
+            Paste the repo URL if you already created one. Leave it blank if
+            you want to decide later.
+          </p>
+        </div>
+
         <div class="prompt-block">
-          <p class="block-label">4. Context</p>
+          <p class="block-label">5. Context</p>
           <label for="contextDetails">Context and details</label>
           <textarea
             id="contextDetails"
@@ -78,7 +101,7 @@
         </div>
 
         <div class="prompt-block">
-          <p class="block-label">5. Must-haves</p>
+          <p class="block-label">6. Must-haves</p>
           <label for="mustHaves">What must the app include?</label>
           <textarea
             id="mustHaves"
@@ -118,6 +141,10 @@
   <footer>
     <p>
       Built for live workshops on prompting and browser-based app design.
+    </p>
+    <p class="footer-note">
+      Need setup help first? Use the GitHub guide before you hand the prompt to
+      your coding assistant.
     </p>
   </footer>
 

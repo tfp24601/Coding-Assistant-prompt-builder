@@ -13,10 +13,11 @@ Instead of generating an "assistant configuration," the app now helps people bui
 - their role,
 - the AI role,
 - the app goal,
+- the GitHub repo they want to use,
 - context and details,
 - and the must-have pieces.
 
-The app then generates a live build prompt that participants can copy into a coding assistant.
+The app then generates a live build prompt that participants can copy into a coding assistant. It also includes a separate `github-guide.html` page for explaining the repo and local-folder setup.
 
 This makes the repo useful for workshops where the goal is to help people move from:
 
@@ -41,8 +42,9 @@ The app is designed to be:
 ### 2. Demo the app live (10 minutes)
 
 - Open `index.html` in the browser.
-- Fill in the five prompt blocks with a concrete example.
+- Fill in the six prompt blocks with a concrete example.
 - Point out how the build prompt updates live as you type.
+- Show the GitHub guide page if people need help understanding repo setup before the coding step.
 - Click **Copy Prompt**.
 - Paste the result into your AI coder assistant and ask them to build version one.
 
@@ -87,6 +89,7 @@ Right now it has fields for:
 - my role
 - AI role
 - app goal
+- GitHub repo URL
 - context and details
 - must-have pieces
 

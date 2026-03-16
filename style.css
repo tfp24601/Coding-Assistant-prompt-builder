@@ -7,9 +7,18 @@
 body,
 h1,
 h2,
+h3,
 p,
-pre {
+pre,
+ol,
+ul,
+li {
   margin: 0;
+}
+
+ol,
+ul {
+  padding: 0;
 }
 
 :root {
@@ -60,6 +69,38 @@ header {
   padding-bottom: 1.5rem;
 }
 
+.top-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.nav-link {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.45rem 0.85rem;
+  border: 1px solid rgba(19, 34, 56, 0.14);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--color-text);
+  font-size: 0.92rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 140ms ease, box-shadow 140ms ease, background 140ms ease;
+}
+
+.nav-link:hover,
+.nav-link:focus-visible {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 18px rgba(19, 34, 56, 0.08);
+}
+
+.nav-link.is-current {
+  background: rgba(15, 118, 110, 0.16);
+  color: var(--color-primary-dark);
+  border-color: rgba(15, 118, 110, 0.22);
+}
+
 .eyebrow {
   display: inline-flex;
   align-items: center;
@@ -88,6 +129,13 @@ header h1 {
   color: var(--color-muted);
 }
 
+.subtitle a,
+.section-heading a,
+.resource-list a,
+footer a {
+  color: var(--color-primary-dark);
+}
+
 main {
   display: grid;
   gap: 1.5rem;
@@ -95,7 +143,8 @@ main {
 }
 
 .form-section,
-.results-section {
+.results-section,
+.guide-section {
   padding: 2rem;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
@@ -112,6 +161,12 @@ main {
 
 .section-heading p {
   max-width: 700px;
+  color: var(--color-muted);
+}
+
+.field-note {
+  margin-top: 0.7rem;
+  font-size: 0.9rem;
   color: var(--color-muted);
 }
 
@@ -155,6 +210,7 @@ label {
 }
 
 input[type="text"],
+input[type="url"],
 select,
 textarea {
   width: 100%;
@@ -174,6 +230,7 @@ textarea {
 }
 
 input[type="text"]:focus,
+input[type="url"]:focus,
 select:focus,
 textarea:focus {
   border-color: rgba(15, 118, 110, 0.65);
@@ -237,6 +294,70 @@ textarea:focus {
   color: var(--color-success);
 }
 
+.step-list {
+  display: grid;
+  gap: 0.9rem;
+  margin-top: 1.5rem;
+  padding-left: 1.25rem;
+}
+
+.step-list li {
+  color: var(--color-text);
+}
+
+.tutorial-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.tutorial-card {
+  padding: 1.2rem;
+  border: 1px solid rgba(19, 34, 56, 0.12);
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.82);
+}
+
+.tutorial-card h3 {
+  font-size: 1.05rem;
+  margin-bottom: 0.45rem;
+}
+
+.tutorial-card p {
+  color: var(--color-muted);
+}
+
+.tutorial-card-wide {
+  grid-column: span 2;
+}
+
+.code-block {
+  margin-top: 0.9rem;
+  padding: 1rem;
+  border-radius: var(--radius-sm);
+  background: rgba(19, 34, 56, 0.96);
+  color: var(--color-output-text);
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 0.92rem;
+  line-height: 1.65;
+  overflow-x: auto;
+}
+
+.resource-list {
+  display: grid;
+  gap: 0.8rem;
+  margin-top: 1.35rem;
+  list-style: none;
+}
+
+.resource-list li {
+  padding: 1rem 1.1rem;
+  border: 1px solid rgba(19, 34, 56, 0.12);
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.82);
+}
+
 footer {
   padding-top: 0.75rem;
   padding-bottom: 2rem;
@@ -271,7 +392,8 @@ footer {
   }
 
   .form-section,
-  .results-section {
+  .results-section,
+  .guide-section {
     padding: 1.25rem;
   }
 
@@ -280,6 +402,14 @@ footer {
   }
 
   .prompt-block-wide {
+    grid-column: span 1;
+  }
+
+  .tutorial-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tutorial-card-wide {
     grid-column: span 1;
   }
 
